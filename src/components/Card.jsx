@@ -5,7 +5,7 @@ import AzureLogo from "../assets/AzureLogo.png";
 import NodeLogo from "../assets/NodeLogo.png";
 import DockerLogo from "../assets/DockerLogo.webp";
 import FirebaseLogo from "../assets/FirebaseLogo.png";
-import GitHubLogo from "../assets/GitHubLogo.png";
+import GitHubLogo from "../assets/GithubLogo.png";
 import LinkedinLogo from "../assets/LinkedinLogo.webp";
 
 function Card() {
