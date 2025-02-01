@@ -1,0 +1,22 @@
+/* Contenedor de la cuadrícula */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+  grid-template-rows: repeat(2, auto); /* 2 filas con altura automática */
+  gap: 10px; /* Espaciado entre las celdas */
+  width: 80%; /* Ajusta el ancho de la cuadrícula */
+  margin: 20px auto; /* Centra la cuadrícula horizontalmente */
+}
+
+/* Elementos dentro de la cuadrícula */
+.grid-item {
+  background-color: #4caf50; /* Color de fondo */
+  color: white; /* Color del texto */
+  display: flex; /* Para centrar contenido */
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  font-size: 18px; /* Tamaño del texto */
+  font-weight: bold;
+}
