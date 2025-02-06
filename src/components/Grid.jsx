@@ -14,7 +14,7 @@ function Grid() {
 
   const images = Array.from(
     { length: 4 },
-    (_, index) => `../../public/fondo/img0${index + 1}.jpeg`
+    (_, index) => `/fondo/img0${index + 1}.jpeg`
   );
 
   const proyectos = ["chatbot", "E-commerce", "Video Juego", "To-Do List"];
