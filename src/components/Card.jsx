@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Card.css";
+import "./Css/Card.css";
 import ReactLogo from "../assets/ReactLogo.webp";
 import AzureLogo from "../assets/AzureLogo.png";
 import NodeLogo from "../assets/NodeLogo.png";
@@ -106,7 +106,7 @@ function Card() {
             <div className="card-seccionv2">
               <p>Git Hub</p>
               <a
-                href="https://www.linkedin.com/in/brayan-camilo-miranda-229620253/"
+                href="https://github.com/brayanmi129"
                 target="_blank"
                 rel="noopener noreferrer"
               >
