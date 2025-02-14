@@ -46,7 +46,7 @@
   transition: filter 0.3s ease;
   width: 6vw;
   -o-object-fit: cover;
-  object-fit: cover; /* Asegurar que las imágenes se ajusten sin distorsión */
+     object-fit: cover; /* Asegurar que las imágenes se ajusten sin distorsión */
 }
 
 .card-images img:hover {
@@ -65,7 +65,7 @@ p {
   height: 80vh;
   perspective: 1000px; /* Necesario para el efecto 3D */
   cursor: pointer;
-  margin: 70px auto;
+  margin: 50px auto;
 }
 
 /* Tarjeta */
@@ -168,7 +168,7 @@ p {
   transition: filter 0.3s ease;
   width: 60%;
   -o-object-fit: contain;
-  object-fit: contain; /* Otras opciones: contain, scale-down */
+     object-fit: contain; /* Otras opciones: contain, scale-down */
 }
 .card-seccion02 a img:hover {
   filter: drop-shadow(0 0 0.9rem rgba(206, 206, 206, 0.2));
@@ -224,6 +224,7 @@ p {
     font-size: 0.86rem;
   }
   .card-container .card-back .card-seccion01 {
+    padding-top: 15%;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -246,9 +247,9 @@ p {
     transition: filter 0.3s ease;
     height: 70%;
     -o-object-fit: contain;
-    object-fit: contain; /* Otras opciones: contain, scale-down */
+       object-fit: contain; /* Otras opciones: contain, scale-down */
   }
   .card-container .card-back .card-seccion02 .card-seccionv2 a img:hover {
     filter: drop-shadow(0 0 0.9rem rgba(206, 206, 206, 0.2));
   }
-} /*# sourceMappingURL=Card.css.map */
+}/*# sourceMappingURL=Card.css.map */
