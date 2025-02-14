@@ -173,14 +173,6 @@ p {
   }
 }
 
-@media (min-height: 800px) {
-  //igual o mayor a 800px
-  .card-container {
-    height: 50vh;
-    width: 90vw;
-  }
-}
-
 @media (max-width: 820px) {
   .card-container {
     justify-content: center;
@@ -221,10 +213,10 @@ p {
       .card-experience {
         margin: 5px 15px;
         h2 {
-          font-size: 0.8rem;
+          font-size: 1.2rem;
         }
         h3 {
-          font-size: 1rem;
+          font-size: 0.8rem;
         }
         p {
           font-size: 0.86rem;

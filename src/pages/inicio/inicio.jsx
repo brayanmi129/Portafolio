@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar.jsx";
 import Card from "./components/Card.jsx";
 import Grid from "./components/Grid.jsx";
 import Footer from "./components/Footer.jsx";
+import Separador from "./components/Separador.jsx";
 import { useState } from "react";
 
 function Inicio() {
@@ -19,6 +20,8 @@ function Inicio() {
       {/* Contenido principal */}
 
       <Card isToggled={isToggled} toggle={toggleState} />
+      <Separador />
+
       <Grid />
 
       {/* Footer */}
