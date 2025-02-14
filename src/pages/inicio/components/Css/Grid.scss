@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  grid-template-rows: repeat(2, 30vh); /* 4 filas con 25vh */
+  width: 80vw;
+  height: auto; /* Ajusta automáticamente su tamaño */
+  margin: 0 auto 5vh auto; /* Arriba: 0, Abajo: 5vh, Lados: auto */
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+/* Elementos dentro de la cuadrícula */
+.grid-item {
+  color: rgb(0, 0, 0); /* Color del texto */
+  display: flex; /* Para centrar contenido */
+  align-items: end;
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  font-size: 18px; /* Tamaño del texto */
+  font-weight: bold;
+  border: 2px solid #00bcd4;
+}
+
+.item-1 {
+  background-size: contain;
+  //centrar la imagen
+  background-position: top;
+}
+
+.item-2 {
+  background-size: contain;
+  //centrar la imagen
+  background-position: center;
+}
+
+.item-3 {
+  background-position: center;
+}
+
+.item-4 {
+  background-position: center;
+}

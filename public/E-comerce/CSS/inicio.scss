@@ -1,0 +1,357 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif;
+    // font-size: 22px;
+    font-size: 105%;
+
+}
+#encabezado {
+    height: 6rem;
+    width: auto;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    .figura {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 100%;
+        display: flex;
+        justify-content: right;
+    }
+
+    .text{
+        position: absolute;
+        top: 0;
+        left: 40%;
+        padding: 1% 1%;
+        width: 39%;
+        height: 98%;
+    }
+
+    .carrito {
+        display: flex;
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        align-items: center;
+        justify-content: center;
+        .img1 {
+            position: absolute;
+            left: 10%;
+            width: 15%;
+            height: auto; /* Para mantener la proporción */
+        }
+        .img2 {
+            position: absolute;
+            width: 15%;
+            height: auto; /* Para mantener la proporción */
+        }
+    }
+}
+
+h1{
+    font-size: 250%;
+}
+h2{
+    font-size: 200%;
+    text-align: center;
+
+}
+
+body{
+    background: linear-gradient(90deg,#e7eccd,#e9e78f);
+}
+
+
+header nav ul {
+    list-style-type: none; /* Elimina los puntos de lista */
+    padding: 0; /* Elimina el relleno predeterminado */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+header nav ul li {
+    display: inline; /* Hace que los elementos de la lista se muestren en línea */
+    margin-right: 15%; /* Espacio entre los elementos */
+}
+header nav ul li:last-child {
+    margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+header nav ul li:first-child {
+    margin-left: 15%; /* Elimina el margen derecho del último elemento */
+}
+header nav ul li a {
+    text-decoration: none; /* Elimina la decoración de subrayado de los enlaces */
+    color: #000; /* Color del texto */
+}
+nav{
+    display: flex;
+    padding: 1%;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+header{
+    display: flex;
+    
+    background: linear-gradient(3deg,#e9e78f,#e7eccd,#e9e78f);
+    width: 100%;
+    height: 100%;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    border-top: 2px solid #000; /* Borde superior */
+    border-bottom: 2px solid #000; /* Borde inferior */
+    padding: 10px 0; /* Espacio de relleno opcional */
+    ul{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+.mostrador{
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    .titulo{
+        padding: 1%;
+        justify-content: center;
+        align-items: center;
+    }
+    .articulos-1{
+        display: flex;
+        padding: 1% 10%;
+        align-items: center;
+        justify-content: center;
+        .cuadros{
+            height: 100%;
+            width: 28%;
+            margin-left: 50px;
+            border: 2px solid #000000;
+            .con-imagen{
+                padding: 5%;
+                width: 100%;
+                height: 80%;
+            img{
+                top:0;
+                left: 0;
+                width: 100%; /* La imagen se ajusta al ancho del contenedor */
+                height: 75%; /* La altura se ajusta automáticamente para mantener la proporción */
+                cursor: pointer;
+                } 
+            }           
+            .precio{
+                font-size: 80%;
+                padding: 1%;
+                color: #FFFFFF;
+                background-color: #4b4b4b;
+                text-align: center;
+                height: auto;
+                width: 100%; /* Ancho del precio igual al del cuadro */
+            }
+        }
+    }
+    .cuadros:first-child {
+        margin-left: 0; // Elimina el margen izquierdo del primer .cuadros
+      }
+}
+
+
+footer {
+    margin-top: 2%;
+    background-color: #4b4b4b;
+    color: #ffffff;
+    padding: 1%; /* Ajusta el relleno según sea necesario */
+    justify-content: center;
+    align-items: center;
+
+    .redes {
+        padding: 0 40%;
+        height: 50%;
+        width: 100%;
+        display: flex;
+        margin-bottom: 0.5%; /* Ajusta el margen según sea necesario */
+    .logos{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .logos img {
+        width: 45%; /* Ajusta el tamaño de la imagen según sea necesario */
+        height: 100%; /* Para mantener la proporción de la imagen */
+    }
+        }
+        .contacto {
+    font-size: 80%; /* Ajusta el tamaño de fuente según sea necesario */
+    text-align: center;
+}
+}
+
+
+
+
+
+
+
+/* Diseño responsivo */
+@media screen and (max-width: 1000px) {
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Playfair Display", serif;
+        // font-size: 22px;
+        font-size: 100%;
+    }
+
+
+    header nav ul {
+        list-style-type: none; /* Elimina los puntos de lista */
+        padding: 0; /* Elimina el relleno predeterminado */
+        margin: 0; /* Elimina el margen predeterminado */
+    }
+    header nav ul li {
+        display: inline; /* Hace que los elementos de la lista se muestren en línea */
+        margin-right: 0; /* Espacio entre los elementos */
+    }
+    header nav ul li:last-child {
+        margin-right: 0; /* Elimina el margen derecho del último elemento */
+    }
+    header nav ul li:first-child {
+        margin-left: 0; /* Elimina el margen derecho del último elemento */
+    }
+    header nav ul li a {
+        text-decoration: none; /* Elimina la decoración de subrayado de los enlaces */
+        color: #000; /* Color del texto */
+    }
+    nav{
+        display: flex;
+        padding: 1%;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+    header{
+        display: flex;
+        
+        background: linear-gradient(3deg,#e9e78f,#e7eccd,#e9e78f);
+        width: 100%;
+        height: 100%;
+        position: sticky;
+        z-index: 1000;
+        top: 0;
+        border-top: 2px solid #000; /* Borde superior */
+        border-bottom: 2px solid #000; /* Borde inferior */
+        padding: 10px 0; /* Espacio de relleno opcional */
+        ul{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+    .mostrador{
+        width: 100%;
+        height: 100%;
+        margin-top: 20px;
+        .titulo{
+            padding: 1%;
+            justify-content: center;
+            align-items: center;
+        }
+        .articulos-1{
+            display: flex;
+            padding: 1% 10%;
+            align-items: center;
+            justify-content: center;
+            .cuadros{
+                height: 100%;
+                width: 28%;
+                margin-left: 50px;
+                border: 2px solid #000000;
+                .con-imagen{
+                    padding: 5%;
+                    width: 100%;
+                    height: 80%;
+                img{
+                    top:0;
+                    left: 0;
+                    width: 100%; /* La imagen se ajusta al ancho del contenedor */
+                    height: 75% /* La altura se ajusta automáticamente para mantener la proporción */
+                    } 
+                }           
+                .precio{
+                    font-size: 50%;
+                    padding: 1%;
+                    color: #FFFFFF;
+                    background-color: #4b4b4b;
+                    text-align: center;
+                    height: auto;
+                    width: 100%; /* Ancho del precio igual al del cuadro */
+                }
+            }
+        }
+        .cuadros:first-child {
+            margin-left: 0; // Elimina el margen izquierdo del primer .cuadros
+          }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Estilos específicos para dispositivos móviles */
+    #encabezado {
+        height: 4rem; /* Reducir aún más la altura del encabezado */
+        .figura {
+            width: 20%; /* Reducir aún más el tamaño de la figura */
+        }
+        .text {
+            left: 20%; /* Ajustar la posición del texto */
+            width: 60%; /* Reducir aún más el ancho del texto */
+        }
+        .carrito {
+            width: 15%; /* Reducir aún más el tamaño del carrito */
+        }
+    }
+    /* Alinear elementos en el encabezado */
+    #encabezado .text {
+        font-size: 80%; /* Reducir el tamaño del texto */
+    }
+    /* Reducir el tamaño de los elementos en la sección de productos */
+    .mostrador {
+        .articulos-1 {
+            .cuadros {
+                width: 100%; /* Ajustar el ancho de los cuadros */
+            }
+        }
+    }
+}

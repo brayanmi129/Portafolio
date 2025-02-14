@@ -1,24 +1,16 @@
-import "./App.css";
-import Navbar from "./components/Navbar.jsx";
-import Card from "./components/Card.jsx";
-import Grid from "./components/Grid.jsx";
-import Footer from "./components/Footer.jsx";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import routes from "./routes.jsx";
 
 function App() {
   return (
-    <>
-      {/* Barra de navegación */}
-      <Navbar />
-
-      {/* Contenido principal */}
-      <main>
-        <Card />
-        <Grid />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+      </Routes>
+    </Router>
   );
 }
 
