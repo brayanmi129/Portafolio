@@ -9,6 +9,7 @@ import GitHubLogo from "../../../assets/GithubLogo.png";
 import LinkedinLogo from "../../../assets/LinkedinLogo.webp";
 
 function Card({ isToggled, toggle }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
   return (
     <div id="home" className="card-container" onClick={toggle}>
       <div className={`card ${isToggled ? "flipped" : ""}`}>
@@ -66,10 +67,10 @@ function Card({ isToggled, toggle }) {
                 <h3> Consultor en área implementación Core </h3>
                 <h3>Nae Colombia 01/02/2021 - 30/11/2021</h3>
                 <p>
-                  Atender solicitud del cliente en implementación de cableados,
-                  instalación o renovación de equipos activos de manera remota
-                  en BTS ,CCM o EB de Claro Colombia Inspección de calidad en
-                  equipos y cableados instalados
+                  {" "}
+                  {isMobile
+                    ? "Aptitudes: Gestion de proyectos, Uso de Ofimatca, Conocimientos sobre equipos activos "
+                    : "Atender solicitud del cliente en implementación de cableados, instalación o renovación de equipos activos de manera remota en BTS ,CCM o EB de Claro Colombia Inspección de calidad en equipos y cableados instalados "}
                 </p>
               </div>
               <div className="ex">
@@ -77,12 +78,9 @@ function Card({ isToggled, toggle }) {
                 <h3>Teleperfromance Colombia 07/03/2023 - Actualidad</h3>
                 <p>
                   {" "}
-                  Apoyo en desarrollo de proyectos Web con Node, servidores
-                  Windows y Servicios en la nube de Azure (appservices, DBSQL,
-                  Storage Account y VM), Google (Firebase Hosting, Storage y
-                  application Functions), encargado de despliegues a productivo
-                  uso de Docker, Seguimiento de proyectos, infraestructura de
-                  aplicaciónes Web
+                  {isMobile
+                    ? "Aptitudes: Node Js, Docker, Firebase, Google Cloud, IIS "
+                    : "Apoyo en desarrollo de proyectos Web con Node, servidores Windows y Servicios en la nube de Azure (appservices, DBSQL, Storage Account y VM), Google (Firebase Hosting, Storage y application Functions), encargado de despliegues a productivo uso de Docker, Seguimiento de proyectos, infraestructura de aplicaciónes Web "}
                 </p>
               </div>
             </div>
