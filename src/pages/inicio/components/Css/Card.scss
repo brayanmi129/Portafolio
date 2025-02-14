@@ -188,13 +188,40 @@ p {
     height: 65vh;
     width: 90vw;
     margin: 20px auto;
+    .card-front {
+      padding: 0;
+      p {
+        font-size: 0.8rem;
+      }
+      h3 {
+        font-size: 0.9rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .card-top {
+        height: 20%;
+      }
+      .card-images {
+        height: 25%;
+        ul {
+          padding: 0;
+          gap: 4vw;
+          li {
+            img {
+              width: 10vw;
+            }
+          }
+        }
+      }
+    }
     .card-back {
       padding: 0;
       display: block;
       .card-experience {
         margin: 5px 15px;
         h2 {
-          font-size: 1.2rem;
+          font-size: 0.8rem;
         }
         h3 {
           font-size: 1rem;

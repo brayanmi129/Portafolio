@@ -188,6 +188,31 @@ p {
     width: 90vw;
     margin: 20px auto;
   }
+  .card-container .card-front {
+    padding: 0;
+  }
+  .card-container .card-front p {
+    font-size: 0.8rem;
+  }
+  .card-container .card-front h3 {
+    font-size: 0.9rem;
+  }
+  .card-container .card-front h2 {
+    font-size: 1.5rem;
+  }
+  .card-container .card-front .card-top {
+    height: 20%;
+  }
+  .card-container .card-front .card-images {
+    height: 25%;
+  }
+  .card-container .card-front .card-images ul {
+    padding: 0;
+    gap: 4vw;
+  }
+  .card-container .card-front .card-images ul li img {
+    width: 10vw;
+  }
   .card-container .card-back {
     padding: 0;
     display: block;
@@ -196,7 +221,7 @@ p {
     margin: 5px 15px;
   }
   .card-container .card-back .card-experience h2 {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
   .card-container .card-back .card-experience h3 {
     font-size: 1rem;
