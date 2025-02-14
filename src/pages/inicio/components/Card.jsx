@@ -87,7 +87,7 @@ function Card({ isToggled, toggle }) {
           </div>
           <div className="card-seccion02">
             <div className="card-seccionv2">
-              <p>Linkedin</p>
+              <p>{isMobile ? "" : "Linkedin"}</p>
               <a
                 href="https://www.linkedin.com/in/brayan-camilo-miranda-229620253/"
                 target="_blank"
@@ -97,7 +97,7 @@ function Card({ isToggled, toggle }) {
               </a>
             </div>
             <div className="card-seccionv2">
-              <p>Git Hub</p>
+              <p>{isMobile ? "" : " Git Hub"}</p>
               <a
                 href="https://github.com/brayanmi129"
                 target="_blank"
