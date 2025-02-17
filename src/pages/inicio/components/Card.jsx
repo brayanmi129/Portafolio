@@ -21,16 +21,9 @@ function Card({ isToggled, toggle }) {
           </div>
           <div className="card-middle">
             <p>
-              Estudiante de Ingeniería en Sistemas con experiencia en desarrollo
-              web y administración de infraestructura en la nube. Domino
-              tecnologías como Azure (App Services, SQL Servers, Storage,
-              Contenedores), Google Firebase (Hosting, Functions, Databases),
-              Windows IIS y Docker (contenedores e imágenes). Habilidades en
-              desarrollo Front con: HTML, CSS, JavaScript, React Backend con
-              Node.js y Express Competente en control de versiones con Git y en
-              documentación técnica. Destaco por mi capacidad de liderazgo,
-              trabajo en equipo, organización y enfoque en soluciones escalables
-              y de calidad{" "}
+              {isMobile
+                ? "Estudiante de Ing de Sistemas con experiencia en desarrollo web y administración en la nube. Domino Azure (App Services, SQL, Storage), Firebase (Hosting, Functions, Databases), Docker e IIS. Desarrollo Frontend con React, HTML, CSS y JavaScript, y Backend con Node.js y Express. Habilidades en Git, documentación técnica, liderazgo, trabajo en equipo y soluciones escalables"
+                : "Estudiante de Ingeniería en Sistemas con experiencia en desarrollo web y administración de infraestructura en la nube. Domino tecnologías como Azure (App Services, SQL Servers, Storage, Contenedores), Google Firebase (Hosting, Functions, Databases), Windows IIS y Docker (contenedores e imágenes). Habilidades en desarrollo Front con: HTML, CSS, JavaScript, React Backend con Node.js y Express Competente en control de versiones con Git y en documentación técnica. Destaco por mi capacidad de liderazgo, trabajo en equipo, organización y enfoque en soluciones escalables y de calidad"}
             </p>
           </div>
           <div className="card-bottom">

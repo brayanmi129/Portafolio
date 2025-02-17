@@ -173,11 +173,11 @@ p {
   }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 800px) {
   .card-container {
     justify-content: center;
     align-items: center;
-    height: 65vh;
+    height: 55vh;
     width: 90vw;
     margin: 20px auto;
     .card-front {
@@ -223,7 +223,88 @@ p {
         }
       }
       .card-seccion01 {
-        padding-top: 15%;
+        padding-top: 5%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50%;
+      }
+      .card-seccion02 {
+        display: flex;
+        height: 50%;
+        width: 100%;
+        .card-seccionv2 {
+          padding: 0;
+          width: 50%;
+          height: 100%;
+          a {
+            height: 100%;
+            img {
+              transition: filter 0.3s ease;
+              height: 70%;
+              object-fit: contain; /* Otras opciones: contain, scale-down */
+            }
+            img:hover {
+              filter: drop-shadow(0 0 0.9rem rgba(206, 206, 206, 0.2));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-height: 1000px) {
+  .card-container {
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 90vw;
+    margin: 20px auto;
+    .card-front {
+      padding: 0;
+      p {
+        font-size: 0.8rem;
+      }
+      h3 {
+        font-size: 0.9rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .card-top {
+        height: 20%;
+      }
+      .card-images {
+        height: 25%;
+        ul {
+          padding: 0;
+          gap: 4vw;
+          li {
+            img {
+              width: 10vw;
+            }
+          }
+        }
+      }
+    }
+    .card-back {
+      padding: 0;
+      display: block;
+      .card-experience {
+        margin: 5px 15px;
+        h2 {
+          font-size: 1.2rem;
+        }
+        h3 {
+          font-size: 0.8rem;
+        }
+        p {
+          font-size: 0.86rem;
+        }
+      }
+      .card-seccion01 {
+        padding-top: 5%;
         align-items: center;
         justify-content: center;
         width: 100%;
