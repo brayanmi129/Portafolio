@@ -1,6 +1,6 @@
 import "./Css/Footer.css";
 import React, { useState } from "react";
-import GitHubLogo from "../../../assets/Github02.svg";
+import GitHubLogo from "../../../assets/github02.svg";
 import LinkedinLogo from "../../../assets/LinkedinLogo.webp";
 import GmailLogo from "../../../assets/gmail.svg";
 import wha from "../../../assets/wha.svg";
