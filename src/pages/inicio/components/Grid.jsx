@@ -17,27 +17,32 @@ function Grid() {
     (_, index) => `/fondo/img0${index + 1}.jpeg`
   );
 
-  const proyectos = ["chatbot", "E-commerce", "Video Juego", "To-Do List"];
+  const proyectos = [
+    "chatbot",
+    "E-commerce",
+    "Premier League Simulator",
+    "To-Do List",
+  ];
   const links = ["./", "./E-comerce/index.html"];
 
   return (
     <div id="proyectos" className="grid-container">
       {images.map((image, index) => (
-        <div
-          key={index}
-          className={`grid-item item-${index + 1}`}
-          style={{
-            opacity: hoveredIndex === index ? 1 : 0.65,
-            backgroundImage: `url(${image})`,
-            backgroundSize: "cover",
-          }}
-          onMouseEnter={() => cambiarOpacidad(index)}
-          onMouseLeave={restaurarOpacidad}
-        >
-          <a href={`${links[index]}`}>
+        <a className="a-items" href={`${links[index]}`}>
+          <div
+            key={index}
+            className={`grid-item item-${index + 1}`}
+            style={{
+              opacity: hoveredIndex === index ? 1 : 0.65,
+              backgroundImage: `url(${image})`,
+              backgroundSize: "cover",
+            }}
+            onMouseEnter={() => cambiarOpacidad(index)}
+            onMouseLeave={restaurarOpacidad}
+          >
             <p> {proyectos[index]} </p>
-          </a>
-        </div>
+          </div>
+        </a>
       ))}
     </div>
   );

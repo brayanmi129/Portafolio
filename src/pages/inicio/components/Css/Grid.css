@@ -16,15 +16,24 @@
 }
 
 /* Elementos dentro de la cuadrícula */
-.grid-item {
-  color: rgb(0, 0, 0); /* Color del texto */
-  display: flex; /* Para centrar contenido */
-  align-items: end;
+.a-items {
+  color: white;
+  text-decoration: none;
   border-radius: 5px; /* Bordes redondeados */
-  padding: 20px; /* Espaciado interno */
   font-size: 18px; /* Tamaño del texto */
-  font-weight: bold;
   border: 2px solid #00bcd4;
+}
+.a-items .grid-item {
+  color: black;
+  display: flex;
+  width: 100%; /* Ancho del 100% */
+  height: 100%; /* Altura del 100% */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 25px; /* Tamaño del texto */
+  font-weight: bold;
+  align-items: end;
+  justify-items: end;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; /* Añadir borde blanco a la letra */
 }
 
 .item-1 {
@@ -49,5 +58,8 @@
   .grid-container {
     grid-template-columns: repeat(1, 1fr); /* 2 columnas */
     grid-template-rows: repeat(4, 15vh);
+  }
+  .a-items .grid-item {
+    font-size: 20px;
   }
 }/*# sourceMappingURL=Grid.css.map */
