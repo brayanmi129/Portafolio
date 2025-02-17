@@ -16,4 +16,27 @@ footer {
 footer p {
   color: white;
   margin: 0 5%;
+}
+footer .contacto-item {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer img {
+  width: 40px;
+}
+footer .imglinkedin {
+  width: 50px;
+}
+
+@media (max-width: 800px) {
+  footer {
+    background: linear-gradient(to bottom, transparent 20%, #333 20%);
+    /* padding orden de lados*/
+    padding: 0% 2% 5% 2%;
+  }
+  footer img {
+    width: 40px;
+  }
 }/*# sourceMappingURL=Footer.css.map */

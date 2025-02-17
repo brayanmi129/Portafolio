@@ -1,4 +1,5 @@
 .separador {
+  z-index: -1000;
   position: relative;
   height: 5vh;
   margin-bottom: 10vh;
@@ -7,6 +8,7 @@
   align-items: center;
 }
 .separador .separador-linea {
+  z-index: -1000;
   position: absolute;
   width: 40%;
   height: 2px;
@@ -15,6 +17,7 @@
   left: 0;
 }
 .separador .separador-linea2 {
+  z-index: -1000;
   position: absolute;
   width: 40%;
   height: 2px;
