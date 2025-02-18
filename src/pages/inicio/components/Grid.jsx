@@ -23,12 +23,17 @@ function Grid() {
     "Premier League Simulator",
     "To-Do List",
   ];
-  const links = ["./", "./E-comerce/index.html"];
+  const links = [
+    "/E-comerce",
+    "./E-comerce/index.html",
+    "/E-comerce",
+    "/E-comerce",
+  ];
 
   return (
     <div id="proyectos" className="grid-container">
       {images.map((image, index) => (
-        <a className="a-items" href={`${links[index]}`}>
+        <a key={index} className="a-items" href={`${links[index]}`}>
           <div
             key={index}
             className={`grid-item item-${index + 1}`}

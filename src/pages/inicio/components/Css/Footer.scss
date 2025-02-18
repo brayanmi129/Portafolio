@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-footer {
+.footer {
+  background-color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,10 +32,9 @@ footer {
 }
 
 @media (max-width: 800px) {
-  footer {
-    background: linear-gradient(to bottom, transparent 20%, #333 20%);
-    /* padding orden de lados*/
-
+  .footer {
+    background-color: none;
+    background: linear-gradient(to bottom, transparent 30%, #333 30%);
     padding: 0% 2% 5% 2%;
     img {
       width: 40px;
