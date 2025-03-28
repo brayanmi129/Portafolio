@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import "./css/Conversation.css";
+import "./css/conversation.css";
 import axios from "axios";
 
 const GetMessages = async (userId) => {
