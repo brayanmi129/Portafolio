@@ -1,4 +1,4 @@
-import "./ChatBot.css";
+import "./Chatbot.css";
 import Conversation from "./components/Conversation.jsx";
 
 function ChatBot() {
