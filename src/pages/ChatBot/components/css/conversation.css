@@ -1,0 +1,51 @@
+.conversation {
+  width: 100%;
+  height: 90vh;
+  font-size: 1rem;
+}
+.conversation .messages {
+  overflow: auto;
+  height: 85%;
+  font-size: 1.1rem;
+}
+.conversation .messages .model {
+  display: flex;
+  padding: 5px;
+}
+.conversation .messages .model .message-text {
+  margin: 0 10px 0;
+}
+.conversation .messages .user {
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+.conversation .messages .user .message-text {
+  padding: 15px;
+  border-radius: 20px;
+  background: #909596;
+  margin: 0 10px 0;
+}
+.conversation .inputs {
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid #000000;
+}
+.conversation .inputs input {
+  width: 75%;
+  height: 50%;
+  border: 2px solid #00bcd4;
+  border-radius: 20px;
+  padding: 15px 20px;
+  margin-right: 20px;
+}
+.conversation .inputs button {
+  height: 50%;
+  width: 20%;
+  border-radius: 20px;
+  background-color: #00bcd4;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+}/*# sourceMappingURL=conversation.css.map */

@@ -24,14 +24,14 @@ function Grid() {
     "To-Do List",
   ];
   const links = [
-    "/E-comerce",
+    "/ChatBot",
     "./E-comerce/index.html",
-    "/E-comerce",
-    "/E-comerce",
+    "/PremierLeague",
+    "/To-Do-List",
   ];
 
   return (
-    <div id="proyectos" className="grid-container">
+    <div className="grid-container">
       {images.map((image, index) => (
         <a key={index} className="a-items" href={`${links[index]}`}>
           <div
