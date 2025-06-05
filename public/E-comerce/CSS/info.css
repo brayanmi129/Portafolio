@@ -1,12 +1,4 @@
 @charset "UTF-8";
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Playfair Display", serif;
-  font-size: 105%;
-}
-
 #encabezado {
   height: 6rem;
   width: auto;
@@ -157,7 +149,7 @@ header ul {
   top: 0;
   left: 0;
   width: 100%; /* La imagen se ajusta al ancho del contenedor */
-  height: 75%;
+  height: 75%; /* La altura se ajusta automáticamente para mantener la proporción */
 }
 .mostrador .description {
   width: 50%;

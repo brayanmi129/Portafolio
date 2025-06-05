@@ -27,7 +27,7 @@ function Navbar({ toggle }) {
           <a href="#Contacto">Contacto</a>
         </li>
         <li>
-          <a onClick={handleDownload} href="">
+          <a onClick={handleDownload} href="#" title="Descargar hoja de vida (PDF)">
             HV
           </a>
         </li>

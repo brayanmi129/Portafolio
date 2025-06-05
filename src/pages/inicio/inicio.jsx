@@ -16,13 +16,11 @@ function Inicio() {
     <>
       {/* Barra de navegación */}
       <Navbar toggle={toggleState} />
-
-      {/* Contenido principal */}
-
-      <Card isToggled={isToggled} toggle={toggleState} />
-      <Separador />
-
-      <Grid />
+      <main className="flex-1 pt-[60px] px-4 sm:px-8">
+        <Card isToggled={isToggled} toggle={toggleState} />
+        <Separador />
+        <Grid />
+      </main>
 
       {/* Footer */}
       <Footer />

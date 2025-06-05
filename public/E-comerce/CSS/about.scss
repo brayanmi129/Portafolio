@@ -1,175 +1,154 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Playfair Display", serif;
-    // font-size: 22px;
-    font-size: 105%;
-
-}
 #encabezado {
-    height: 6rem;
-    width: auto;
-    position: relative;
-    align-items: center;
-    justify-content: center;
+  height: 6rem;
+  width: auto;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  .figura {
+    position: absolute;
     top: 0;
     left: 0;
-    .figura {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40%;
-        height: 100%;
-        display: flex;
-        justify-content: right;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+  }
+
+  .text {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    padding: 1% 1%;
+    width: 39%;
+    height: 98%;
+  }
+
+  .carrito {
+    display: flex;
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    .img1 {
+      position: absolute;
+      left: 10%;
+      width: 15%;
+      height: auto; /* Para mantener la proporción */
     }
-
-    .text{
-        position: absolute;
-        top: 0;
-        left: 40%;
-        padding: 1% 1%;
-        width: 39%;
-        height: 98%;
+    .img2 {
+      position: absolute;
+      width: 15%;
+      height: auto; /* Para mantener la proporción */
     }
-
-    .carrito {
-        display: flex;
-        position: absolute;
-        width: 20%;
-        height: 100%;
-        top: 0;
-        right: 0;
-        align-items: center;
-        justify-content: center;
-        .img1 {
-            position: absolute;
-            left: 10%;
-            width: 15%;
-            height: auto; /* Para mantener la proporción */
-        }
-        .img2 {
-            position: absolute;
-            width: 15%;
-            height: auto; /* Para mantener la proporción */
-        }
-    }
+  }
 }
 
-h1{
-    font-size: 250%;
+h1 {
+  font-size: 250%;
 }
-h2{
-    
-    font-size: 250%;
-    text-align: center;
-}
-
-h3{
-    
-    display: inline;
-    margin: 0;
-    padding: 0;
+h2 {
+  font-size: 250%;
+  text-align: center;
 }
 
-body{
-    background: linear-gradient(90deg,#e7eccd,#e9e78f);
+h3 {
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  background: linear-gradient(90deg, #e7eccd, #e9e78f);
+}
 
 header nav ul {
-    list-style-type: none; /* Elimina los puntos de lista */
-    padding: 0; /* Elimina el relleno predeterminado */
-    margin: 0; /* Elimina el margen predeterminado */
+  list-style-type: none; /* Elimina los puntos de lista */
+  padding: 0; /* Elimina el relleno predeterminado */
+  margin: 0; /* Elimina el margen predeterminado */
 }
 header nav ul li {
-    display: inline; /* Hace que los elementos de la lista se muestren en línea */
-    margin-right: 15%; /* Espacio entre los elementos */
+  display: inline; /* Hace que los elementos de la lista se muestren en línea */
+  margin-right: 15%; /* Espacio entre los elementos */
 }
 header nav ul li:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último elemento */
+  margin-right: 0; /* Elimina el margen derecho del último elemento */
 }
 header nav ul li:first-child {
-    margin-left: 15%; /* Elimina el margen derecho del último elemento */
+  margin-left: 15%; /* Elimina el margen derecho del último elemento */
 }
 header nav ul li a {
-    text-decoration: none; /* Elimina la decoración de subrayado de los enlaces */
-    color: #000; /* Color del texto */
+  text-decoration: none; /* Elimina la decoración de subrayado de los enlaces */
+  color: #000; /* Color del texto */
 }
-nav{
-    display: flex;
-    padding: 1%;
+nav {
+  display: flex;
+  padding: 1%;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+header {
+  display: flex;
+
+  background: linear-gradient(3deg, #e9e78f, #e7eccd, #e9e78f);
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  border-top: 2px solid #000; /* Borde superior */
+  border-bottom: 2px solid #000; /* Borde inferior */
+  padding: 10px 0; /* Espacio de relleno opcional */
+  ul {
     width: 100%;
     height: 100%;
-    align-items: center;
+  }
 }
-header{
-    display: flex;
-    
-    background: linear-gradient(3deg,#e9e78f,#e7eccd,#e9e78f);
-    width: 100%;
-    height: 100%;
-    position: sticky;
-    z-index: 1000;
-    top: 0;
-    border-top: 2px solid #000; /* Borde superior */
-    border-bottom: 2px solid #000; /* Borde inferior */
-    padding: 10px 0; /* Espacio de relleno opcional */
-    ul{
-        width: 100%;
-        height: 100%;
+
+.about {
+  padding: 3%;
+  .content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(35px);
+    padding: 2%;
+    border: 10px solid hsla(0, 0%, 100%, 0.4);
+    .txt {
+      padding: 1% 0;
     }
+  }
 }
-
-
-
-.about{
-    padding: 3%;
-    .content{
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(35px);
-        padding: 2%;
-        border: 10px solid hsla(0, 0%, 100%, .4);
-        .txt{
-            
-            padding: 1% 0;
-        }
-    }
-}
-
 
 footer {
-    margin-top: 2%;
-    background-color: #4b4b4b;
-    color: #ffffff;
-    padding: 1%; /* Ajusta el relleno según sea necesario */
-    justify-content: center;
-    align-items: center;
+  margin-top: 2%;
+  background-color: #4b4b4b;
+  color: #ffffff;
+  padding: 1%; /* Ajusta el relleno según sea necesario */
+  justify-content: center;
+  align-items: center;
 
-    .redes {
-        padding: 0 40%;
-        height: 50%;
-        width: 100%;
-        display: flex;
-        margin-bottom: 0.5%; /* Ajusta el margen según sea necesario */
-    .logos{
-        width: 100%;
-        display: flex;
-        justify-content: center;
+  .redes {
+    padding: 0 40%;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    margin-bottom: 0.5%; /* Ajusta el margen según sea necesario */
+    .logos {
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
     .logos img {
-        width: 45%; /* Ajusta el tamaño de la imagen según sea necesario */
-        height: 100%; /* Para mantener la proporción de la imagen */
+      width: 45%; /* Ajusta el tamaño de la imagen según sea necesario */
+      height: 100%; /* Para mantener la proporción de la imagen */
     }
-        }
-        .contacto {
+  }
+  .contacto {
     font-size: 80%; /* Ajusta el tamaño de fuente según sea necesario */
     text-align: center;
+  }
 }
-}
-
-
-
-
-

@@ -1,55 +1,53 @@
-import {
-  Table,
-  Header,
-  HeaderRow,
-  Body,
-  Row,
-  HeaderCell,
-  Cell,
-} from "@table-library/react-table-library/table";
-import { nodes } from "./data.js";
-import { THEME } from "./theme.js";
-import { useTheme } from "@table-library/react-table-library/theme";
+import { useState, useEffect } from "react";
+import { response } from "./data.js";
 
 function TablePremier() {
-  const data = { nodes };
+  const [data, setData] = useState([]);
 
-  const theme = useTheme(THEME);
+  useEffect(() => {
+    // Extraemos los datos y los ordenamos por puntos descendente
+    const sortedData = [...response.data]
+      .sort((a, b) => b.puntos - a.puntos)
+      .map((item) => ({
+        ...item,
+        DG: item.GF - item.GC,
+      }));
+
+    setData(sortedData);
+  }, []); // solo se ejecuta una vez al montar
 
   return (
-    <Table data={data ?? []} theme={theme} layout={{ fixedHeader: true }}>
-      {(tableList) => (
-        <>
-          <Header>
-            <HeaderRow>
-              <HeaderCell>N°</HeaderCell>
-              <HeaderCell>Team</HeaderCell>
-              <HeaderCell>Pj</HeaderCell>
-              <HeaderCell>Complete</HeaderCell>
-              <HeaderCell>Tasks</HeaderCell>
-            </HeaderRow>
-          </Header>
-
-          <Body>
-            {tableList.map((item) => (
-              <Row key={item.id} item={item}>
-                <Cell>{item.name}</Cell>
-                <Cell>
-                  {new Date(item.deadline).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                  })}
-                </Cell>
-                <Cell>{item.type}</Cell>
-                <Cell>{item.isComplete.toString()}</Cell>
-                <Cell>{item.nodes ? item.nodes.length : ""}</Cell>
-              </Row>
-            ))}
-          </Body>
-        </>
-      )}
-    </Table>
+    <div className="overflow-x-auto rounded-xl shadow-md bg-white p-4">
+      <table className="min-w-full table-auto text-sm text-gray-700">
+        <thead
+          className="text-white"
+          style={{ background: "linear-gradient(90deg, #00ff85 0%, #38003c 80%)" }}
+        >
+          <tr>
+            <th className="px-4 py-2 text-left">#</th>
+            <th className="px-4 py-2 text-left">Equipo</th>
+            <th className="px-4 py-2 text-center">GF</th>
+            <th className="px-4 py-2 text-center">GC</th>
+            <th className="px-4 py-2 text-center">DG</th>
+            <th className="px-4 py-2 text-center">Puntos</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((equipo, index) => (
+            <tr key={equipo.equipo} className="hover:bg-gray-100 transition duration-200 border-b">
+              <td className="px-4 py-2">{index + 1}</td>
+              <td className="px-4 py-2 font-medium">{equipo.equipo}</td>
+              <td className="px-4 py-2 text-center">{equipo.GF}</td>
+              <td className="px-4 py-2 text-center">{equipo.GC}</td>
+              <td className="px-4 py-2 text-center">
+                {equipo.DG > 0 ? `+${equipo.DG}` : equipo.DG}
+              </td>
+              <td className="px-4 py-2 text-center">{equipo.puntos}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

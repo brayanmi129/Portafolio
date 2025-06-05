@@ -1,43 +1,41 @@
-* {
-  box-sizing: border-box;
-}
-
 .footer {
   background-color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   width: 100%;
   padding: 2%;
-  position: absolute;
-  left: 0;
   color: white;
-  p {
-    color: white;
-    margin: 0 5%;
-  }
-  .contacto-item {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  img {
-    width: 40px;
-  }
-  .imglinkedin {
-    width: 50px;
-  }
+  position: relative;
+
+  /* Asegura que esté pegado a los lados y se vea bien */
+  left: 0;
+  right: 0;
+}
+
+.footer p {
+  color: white;
+  margin: 0 5%;
+}
+
+.contacto-item {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer img {
+  width: 40px;
+}
+
+.imglinkedin {
+  width: 50px;
 }
 
 @media (max-width: 800px) {
   .footer {
-    background-color: none;
     background: linear-gradient(to bottom, transparent 30%, #333 30%);
     padding: 0% 2% 5% 2%;
-    img {
-      width: 40px;
-    }
   }
 }

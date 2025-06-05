@@ -1,11 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Playfair Display", serif;
-  font-size: 105%;
-}
-
 body {
   background: linear-gradient(90deg, #e7eccd, #e9e78f);
   height: 100vh; /* Usar 100vh en lugar de 100% para ocupar el 100% de la altura de la ventana */

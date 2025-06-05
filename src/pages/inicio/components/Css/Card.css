@@ -20,6 +20,7 @@
 .card-bottom {
   text-align: center;
   height: auto;
+  padding: 10px;
   justify-content: space-between; /* Distribuye los hijos */
 }
 
