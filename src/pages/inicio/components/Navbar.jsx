@@ -26,7 +26,7 @@ function Navbar({ toggle }) {
         <li className="liitem">
           <a href="#Contacto">Contacto</a>
         </li>
-        <li>
+        <li className="hv">
           <a onClick={handleDownload} href="#" title="Descargar hoja de vida (PDF)">
             HV
           </a>
