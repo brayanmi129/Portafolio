@@ -22,26 +22,26 @@ function Footer() {
           href="https://mail.google.com/mail/?view=cm&fs=1&to=brayanmiranda129@gmail.com"
           target="_blank"
         >
-          <img src={GmailLogo} alt="asdsd" />
+          <img className="w-8" src={GmailLogo} alt="Logo Gmail" />
         </a>
       </div>
       <div className="contacto-item">
         {isMobile ? "" : <p> Cel: 3188975553</p>}
         <a href="https://api.whatsapp.com/send?phone=573188975553" target="_blank">
-          <img src={wha} alt="asdasd" />
+          <img className="w-8" src={wha} alt="logo whatsapp" />
         </a>
       </div>
 
       <div className="contacto-item">
         {isMobile ? "" : <p>Linkedin: Brayan Miranda</p>}
         <a href="https://www.linkedin.com/in/brayan-camilo-miranda-229620253/" target="_blank">
-          <img className="imglinkedin" src={LinkedinLogo} alt="hola" />
+          <img className="w-10" src={LinkedinLogo} alt="Logo linkedin" />
         </a>
       </div>
       <div className="contacto-item">
         {isMobile ? "" : <p>Github/brayanmi129</p>}
         <a href="https://github.com/brayanmi129" target="_blank">
-          <img src={GitHubLogo} alt="hola" />
+          <img className="w-8" src={GitHubLogo} alt="Logo github" />
         </a>
       </div>
     </footer>
