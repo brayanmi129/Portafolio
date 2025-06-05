@@ -12,23 +12,10 @@ function Grid() {
     setHoveredIndex(null);
   };
 
-  const images = Array.from(
-    { length: 4 },
-    (_, index) => `/fondo/img0${index + 1}.jpeg`
-  );
+  const images = Array.from({ length: 4 }, (_, index) => `/fondo/img0${index + 1}.jpeg`);
 
-  const proyectos = [
-    "chatbot",
-    "E-commerce",
-    "Premier League Simulator",
-    "To-Do List",
-  ];
-  const links = [
-    "/ChatBot",
-    "./E-comerce/index.html",
-    "/PremierLeague",
-    "/To-Do-List",
-  ];
+  const proyectos = ["chatbot", "E-commerce", "Premier League Simulator", "To-Do List"];
+  const links = ["/ChatBot", "./E-comerce", "/PremierLeague", "/To-Do-List"];
 
   return (
     <div className="grid-container">

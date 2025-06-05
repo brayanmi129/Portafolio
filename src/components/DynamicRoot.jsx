@@ -15,6 +15,10 @@ function DynamicRoot() {
       root.classList.add("ChatBot");
     } else if (location.pathname.startsWith("/PremierLeague")) {
       root.classList.add("PremierLeague-theme");
+    } else if (location.pathname.startsWith("/E-comerce")) {
+      root.classList.add("E-comerce-theme");
+    } else if (location.pathname.startsWith("/To-Do-List")) {
+      root.classList.add("To-Do-List-theme");
     } else {
       root.classList.add("Inicio-theme");
     }

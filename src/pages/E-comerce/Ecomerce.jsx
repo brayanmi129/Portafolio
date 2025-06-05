@@ -1,8 +1,9 @@
-import "./Ecomerce.css";
-import Working from "../Working/working.jsx";
-
 function Ecomerce() {
-  return <Working> </Working>;
+  return (
+    <div className="grid-container">
+      <p>Holaaaa</p>
+    </div>
+  );
 }
 
 export default Ecomerce;
