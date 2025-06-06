@@ -7,6 +7,7 @@ import NodeLogo from "../../../assets/NodeLogo.png";
 import DockerLogo from "../../../assets/DockerLogo.webp";
 import FirebaseLogo from "../../../assets/FirebaseLogo.png";
 import GitHubLogo from "../../../assets/GithubLogo.png";
+
 import LinkedinLogo from "../../../assets/LinkedinLogo.webp";
 
 function Card({ isToggled, toggle }) {
