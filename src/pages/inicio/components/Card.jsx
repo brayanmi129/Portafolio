@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 import "./Css/Card.css";
-import ReactLogo from "../../../assets/ReactLogo.webp";
+// import ReactLogo from "../../../assets/ReactLogo.webp";
 import AzureLogo from "../../../assets/AzureLogo.png";
 import NodeLogo from "../../../assets/NodeLogo.png";
 import DockerLogo from "../../../assets/DockerLogo.webp";
 import FirebaseLogo from "../../../assets/FirebaseLogo.png";
 import GitHubLogo from "../../../assets/GithubLogo.png";
-import LinkedinLogo from "../../../assets/LinkedinLogo.webp";
+// import LinkedinLogo from "../../../assets/LinkedinLogo.webp";
 
 function Card({ isToggled, toggle }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
@@ -34,7 +34,7 @@ function Card({ isToggled, toggle }) {
             <ul>
               <li>
                 {" "}
-                <img className="logo" src={ReactLogo} alt="Logo React" />
+                <img className="logo" src="../../../public/imgs/ReactLogo.webp" alt="Logo React" />
               </li>
               <li>
                 <img className="logo" src={AzureLogo} alt="Logo Azure" />
@@ -87,16 +87,16 @@ function Card({ isToggled, toggle }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="logo" src={LinkedinLogo} alt="Logo Linkedin" />
+                <img
+                  className="logo"
+                  src="../../../public/imgs/LinkedinLogo.webp"
+                  alt="Logo Linkedin"
+                />
               </a>
             </div>
             <div className="card-seccionv2">
               <p>{isMobile ? "" : " Git Hub"}</p>
-              <a
-                href="https://github.com/brayanmi129"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://github.com/brayanmi129" target="_blank" rel="noopener noreferrer">
                 <img className="logo" src={GitHubLogo} alt="Logo GitHub" />
               </a>
             </div>
