@@ -37,5 +37,5 @@ jobs:
       - name: Deploy a App Service
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "Clinica-norte"
+          app-name: "portafolio-BrayanMiranda"
           package: "./dist" 
