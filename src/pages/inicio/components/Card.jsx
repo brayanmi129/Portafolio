@@ -7,7 +7,7 @@ import NodeLogo from "../../../assets/NodeLogo.png";
 import DockerLogo from "../../../assets/DockerLogo.webp";
 import FirebaseLogo from "../../../assets/FirebaseLogo.png";
 import GitHubLogo from "../../../assets/GithubLogo.png";
-import LinkedinLogo from "../../../assets/LinkedinLogo.webp";
+import LinkedinLogo from "../../../assets/LinkedinLogo.png";
 
 function Card({ isToggled, toggle }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
