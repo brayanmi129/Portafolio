@@ -34,7 +34,8 @@ function Card({ isToggled, toggle }) {
             <ul>
               <li>
                 {" "}
-                <img className="logo" src={ReactLogo} alt="Logo React" />
+                {/* <img className="logo" src={ReactLogo} alt="Logo React" /> */}
+                <img className="logo" src="/ReactLogo.webp" alt="Logo React" />
               </li>
               <li>
                 <img className="logo" src={AzureLogo} alt="Logo Azure" />
