@@ -1,7 +1,7 @@
 import "./Css/Footer.css";
 import React, { useState, useEffect } from "react";
 import GitHubLogo from "../../../assets/github02.svg";
-// import LinkedinLogo from "../../../assets/LinkedinLogo.webp";
+import LinkedinLogo from "../../../assets/LinkedinLogo.png";
 import GmailLogo from "../../../assets/gmail.png";
 import wha from "../../../assets/whatsapp.png";
 
@@ -35,7 +35,7 @@ function Footer() {
       <div className="contacto-item">
         {isMobile ? "" : <p>Linkedin: Brayan Miranda</p>}
         <a href="https://www.linkedin.com/in/brayan-camilo-miranda-229620253/" target="_blank">
-          <img className="w-11" src="/imgs/LinkedinLogo.webp" alt="Logo linkedin" />
+          <img className="w-11" src={LinkedinLogo} alt="Logo linkedin" />
         </a>
       </div>
       <div className="contacto-item">
