@@ -4,7 +4,7 @@ import Conversation from "./components/Conversation.jsx";
 function ChatBot() {
   return (
     <div className="ChatBot-Container">
-      <div>
+      <div className="ChatBot-Header">
         <h1 className="ChatBot-Title">Chatbot</h1>
       </div>
       <Conversation />
