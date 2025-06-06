@@ -35,7 +35,7 @@ function Footer() {
       <div className="contacto-item">
         {isMobile ? "" : <p>Linkedin: Brayan Miranda</p>}
         <a href="https://www.linkedin.com/in/brayan-camilo-miranda-229620253/" target="_blank">
-          <img className="w-11" src="../../../public/imgs/LinkedinLogo.webp" alt="Logo linkedin" />
+          <img className="w-11" src="/imgs/LinkedinLogo.webp" alt="Logo linkedin" />
         </a>
       </div>
       <div className="contacto-item">

@@ -34,7 +34,7 @@ function Card({ isToggled, toggle }) {
             <ul>
               <li>
                 {" "}
-                <img className="logo" src="../../../public/imgs/ReactLogo.webp" alt="Logo React" />
+                <img className="logo" src="/imgs/ReactLogo.webp" alt="Logo React" />
               </li>
               <li>
                 <img className="logo" src={AzureLogo} alt="Logo Azure" />
@@ -87,11 +87,7 @@ function Card({ isToggled, toggle }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  className="logo"
-                  src="../../../public/imgs/LinkedinLogo.webp"
-                  alt="Logo Linkedin"
-                />
+                <img className="logo" src="/imgs/LinkedinLogo.webp" alt="Logo Linkedin" />
               </a>
             </div>
             <div className="card-seccionv2">
