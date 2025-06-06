@@ -3,10 +3,10 @@ name: Deploy to azure portafolio
 on:
   push:
     branches:
-      - Front
+      - main
   pull_request:
     branches:
-      - Front
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
