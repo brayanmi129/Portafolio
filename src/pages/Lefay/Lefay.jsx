@@ -2,7 +2,7 @@
 import React from "react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
-import ProductCatalog from "./components/ProductCatalog";
+import ProductCatalog from "./components/productCatalog";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 
