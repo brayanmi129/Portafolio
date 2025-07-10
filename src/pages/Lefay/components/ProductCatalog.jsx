@@ -1,6 +1,6 @@
 // components/ProductCatalog.jsx
 import React from "react";
-
+//asd
 const products = [
   {
     id: 1,
