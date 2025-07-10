@@ -1,7 +1,6 @@
 // components/ProductCatalog.jsx
 import React from "react";
 
-// Dummy Product Data
 const products = [
   {
     id: 1,
