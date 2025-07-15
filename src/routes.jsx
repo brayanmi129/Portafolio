@@ -11,7 +11,7 @@ const routes = [
   { path: "/Lefay", element: <Lefay />, exact: true },
   { path: "/PremierLeague", element: <Premier />, exact: true },
   { path: "/ChatBot", element: <ChatBot />, exact: true },
-  { path: "/To-Do-List", element: <PineNotes />, exact: true },
+  { path: "/Pinned-notes", element: <PineNotes />, exact: true },
 ];
 
 export default routes;
