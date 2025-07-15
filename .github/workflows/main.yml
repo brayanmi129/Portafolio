@@ -23,6 +23,10 @@ jobs:
       - name: Instalar dependencias
         run: npm install
         
+      - name: Export environment variables
+        run: echo "VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }}" >> $GITHUB_ENV
+
+        
       - name: Build
         run: npm run build
 
