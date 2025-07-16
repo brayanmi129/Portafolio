@@ -9,6 +9,7 @@ function PineNotes() {
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const containerRef = useRef(null);
   const socketRef = useRef(null);
+  const clientIdRef = useRef(Date.now() + "-" + Math.random());
 
   // Medir contenedor (sin cambios)
   useEffect(() => {
@@ -32,9 +33,14 @@ function PineNotes() {
 
     socket.on("initial-notes", (initialNotes) => setNotes(initialNotes));
     socket.on("note-created", (newNote) => setNotes((prev) => [...prev, newNote]));
-    socket.on("note-updated", (updatedNote) =>
-      setNotes((prev) => prev.map((note) => (note.id === updatedNote.id ? updatedNote : note)))
-    );
+    socket.on("note-updated", (updatedNote, clientId) => {
+      console.log("ID comparations:", clientId.current, "-------", clientIdRef.current);
+      if (clientId.current === clientIdRef.current) {
+        // Ignorar actualización porque ya está en el estado local
+        return;
+      }
+      setNotes((prev) => prev.map((note) => (note.id === updatedNote.id ? updatedNote : note)));
+    });
     socket.on("note-deleted", (deletedId) =>
       setNotes((prev) => prev.filter((note) => note.id !== deletedId))
     );
@@ -67,7 +73,7 @@ function PineNotes() {
     setNotes((prev) => prev.map((note) => (note.id === id ? { ...note, text: newText } : note)));
     const updatedNote = notes.find((note) => note.id === id);
     if (updatedNote) {
-      socketRef.current.emit("update-note", { ...updatedNote, text: newText });
+      socketRef.current.emit("update-note", { ...updatedNote, text: newText }, clientIdRef);
     }
   };
 
@@ -132,7 +138,7 @@ function PineNotes() {
             y: newY,
           };
           // Asegúrate de enviar la posición final de inmediato al soltar
-          socketRef.current.emit("update-note", updatedNote);
+          socketRef.current.emit("update-note", updatedNote, clientIdRef);
           return updatedNote;
         }
         return note;
