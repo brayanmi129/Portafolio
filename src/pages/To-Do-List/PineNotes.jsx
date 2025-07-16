@@ -7,7 +7,10 @@ import throttle from "lodash.throttle"; // Importar throttle
 function PineNotes() {
   const [notes, setNotes] = useState([]);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [otherCursors, setOtherCursors] = useState({});
   const containerRef = useRef(null);
+  const [isDraggingEnabled, setIsDraggingEnabled] = useState(true);
+
   const socketRef = useRef(null);
   const clientIdRef = useRef(Date.now() + "-" + Math.random());
 
@@ -49,6 +52,39 @@ function PineNotes() {
     );
 
     return () => socket.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!socketRef.current) return;
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const x = (e.clientX - containerRect.left) / containerRect.width;
+      const y = (e.clientY - containerRect.top) / containerRect.height;
+      socketRef.current.emit("mouse-move", { x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [containerRef]);
+
+  useEffect(() => {
+    if (!socketRef.current) return;
+
+    socketRef.current.on("mouse-update", ({ clientId, x, y }) => {
+      if (clientId === clientIdRef.current) return; // no mostrar mi propio cursor
+      setOtherCursors((prev) => ({
+        ...prev,
+        [clientId]: { x, y },
+      }));
+    });
+
+    socketRef.current.on("user-disconnected", (clientId) => {
+      setOtherCursors((prev) => {
+        const updated = { ...prev };
+        delete updated[clientId];
+        return updated;
+      });
+    });
   }, []);
 
   const addNote = () => {
@@ -151,6 +187,17 @@ function PineNotes() {
 
   return (
     <div className="w-screen h-screen bg-[url('/fondo/NoteBackground.png')] bg-cover relative overflow-hidden flex items-center justify-center">
+      {Object.entries(otherCursors).map(([clientId, pos]) => (
+        <div
+          key={clientId}
+          className="absolute w-4 h-4 rounded-full bg-red-500 opacity-75 pointer-events-none"
+          style={{
+            left: `${pos.x * 100}%`,
+            top: `${pos.y * 100}%`,
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+      ))}
       <div ref={containerRef} style={{ width: "90%", height: "90%", position: "relative" }}>
         {" "}
         {/* Añadir position: "relative" */}
@@ -168,7 +215,7 @@ function PineNotes() {
           {notes.map((note, index) => (
             <motion.div
               key={note.id}
-              drag
+              drag={isDraggingEnabled}
               dragConstraints={containerRef}
               dragMomentum={false}
               onDrag={(event, info) => handleDrag(event, info, note.id)}
@@ -196,10 +243,14 @@ function PineNotes() {
                 zIndex: index + 1,
                 transformOrigin: "50% 0%",
                 rotate: note.initialRotate,
+                cursor: isDraggingEnabled ? "grab" : "default",
               }}
             >
               <textarea
                 onChange={(e) => handleTextChange(note.id, e.target.value)}
+                onPointerDown={() => setIsDraggingEnabled(false)}
+                onPointerUp={() => setIsDraggingEnabled(true)}
+                onPointerLeave={() => setIsDraggingEnabled(true)}
                 placeholder="Escribe tu nota aquí..."
                 className="w-full h-full resize-none bg-transparent outline-none text-gray-800 text-base font-medium p-2"
                 value={note.text}
