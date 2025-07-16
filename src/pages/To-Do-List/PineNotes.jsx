@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react"; // Añadir useCallback
 import { AnimatePresence, motion } from "framer-motion";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { io } from "socket.io-client";
+import throttle from "lodash.throttle"; // Importar throttle
 
 function PineNotes() {
   const [notes, setNotes] = useState([]);
@@ -9,7 +10,7 @@ function PineNotes() {
   const containerRef = useRef(null);
   const socketRef = useRef(null);
 
-  // Medir contenedor
+  // Medir contenedor (sin cambios)
   useEffect(() => {
     const updateSize = () => {
       if (containerRef.current) {
@@ -24,7 +25,7 @@ function PineNotes() {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  // Socket
+  // Socket (sin cambios)
   useEffect(() => {
     const socket = io(import.meta.env.VITE_BACKEND_URL);
     socketRef.current = socket;
@@ -70,12 +71,25 @@ function PineNotes() {
     }
   };
 
+  // --- CAMBIO CLAVE AQUÍ ---
+  // Memoizamos la función de emisión de arrastre para que solo se ejecute cada 50ms
+  const emitDragUpdate = useCallback(
+    throttle((updatedNote) => {
+      socketRef.current.emit("drag-note", updatedNote);
+    }, 100), // Emite un máximo de una vez cada 50 milisegundos
+    []
+  );
+
   const handleDrag = (event, info, id) => {
-    if (!containerRef.current) return;
+    if (
+      !containerRef.current ||
+      !socketRef.current ||
+      !containerSize.width ||
+      !containerSize.height
+    )
+      return;
 
     const containerRect = containerRef.current.getBoundingClientRect();
-
-    // Calculate new position relative to the container, then normalize to a proportion
     const newX = (info.point.x - containerRect.left) / containerSize.width;
     const newY = (info.point.y - containerRect.top) / containerSize.height;
 
@@ -87,8 +101,8 @@ function PineNotes() {
             x: newX,
             y: newY,
           };
-          // Emit drag-note on every move for real-time updates
-          socketRef.current.emit("drag-note", updatedNote);
+          // Llamar a la función throttle aquí
+          emitDragUpdate(updatedNote);
           return updatedNote;
         }
         return note;
@@ -97,11 +111,15 @@ function PineNotes() {
   };
 
   const handleDragEnd = (event, info, id) => {
-    if (!containerRef.current) return;
+    if (
+      !containerRef.current ||
+      !socketRef.current ||
+      !containerSize.width ||
+      !containerSize.height
+    )
+      return;
 
     const containerRect = containerRef.current.getBoundingClientRect();
-
-    // Calculate new position relative to the container, then normalize to a proportion
     const newX = (info.point.x - containerRect.left) / containerSize.width;
     const newY = (info.point.y - containerRect.top) / containerSize.height;
 
@@ -113,29 +131,33 @@ function PineNotes() {
             x: newX,
             y: newY,
           };
-          // Emit update-note on drag end for final position persistence
+          // Asegúrate de enviar la posición final de inmediato al soltar
           socketRef.current.emit("update-note", updatedNote);
           return updatedNote;
         }
         return note;
       })
     );
+    // Limpia cualquier llamada throttled pendiente para asegurar que la última posición se envíe
+    emitDragUpdate.flush();
   };
+  // --- FIN CAMBIO CLAVE ---
 
   return (
     <div className="w-screen h-screen bg-[url('/fondo/NoteBackground.png')] bg-cover relative overflow-hidden flex items-center justify-center">
-      <div ref={containerRef} style={{ width: "90%", height: "90%" }}>
-        <div className="flex justify-center h-20 items-center">
-          <button
-            onClick={addNote}
-            className="absolute top-6 left-6 p-4 text-gray-800 rounded-lg shadow-xl transform -rotate-3 transition-all duration-150 ease-out hover:scale-105 hover:shadow-2xl active:scale-95 active:shadow-lg flex items-center justify-center font-black tracking-wide gap-2"
-            style={{ backgroundColor: "#ff9696" }}
-          >
-            <PlusCircleIcon className="h-6 w-6" />
-            <div>Añadir Nota</div>
-          </button>
-        </div>
-
+      <div ref={containerRef} style={{ width: "90%", height: "90%", position: "relative" }}>
+        {" "}
+        {/* Añadir position: "relative" */}
+        {/* Aquí la posición del botón 'Añadir Nota' debe ser relativa al containerRef si quieres que esté dentro de él */}
+        {/* Si quieres que siga en la esquina superior izquierda de la pantalla, déjalo como estaba */}
+        <button
+          onClick={addNote}
+          className="absolute top-6 left-6 p-4 text-gray-800 rounded-lg shadow-xl transform -rotate-3 transition-all duration-150 ease-out hover:scale-105 hover:shadow-2xl active:scale-95 active:shadow-lg flex items-center justify-center font-black tracking-wide gap-2"
+          style={{ backgroundColor: "#ff9696" }}
+        >
+          <PlusCircleIcon className="h-6 w-6" />
+          <div>Añadir Nota</div>
+        </button>
         <AnimatePresence>
           {notes.map((note, index) => (
             <motion.div
@@ -143,7 +165,6 @@ function PineNotes() {
               drag
               dragConstraints={containerRef}
               dragMomentum={false}
-              // Usa onDrag directamente para actualizar la posición
               onDrag={(event, info) => handleDrag(event, info, note.id)}
               onDragEnd={(event, info) => handleDragEnd(event, info, note.id)}
               initial={{ opacity: 0, scale: 0.8, rotate: note.initialRotate }}
@@ -164,7 +185,6 @@ function PineNotes() {
                 boxShadow: "0 5px 15px rgba(0,0,0,0.15)",
                 color: "#333",
                 padding: "20px",
-                // Usa valores proporcionales directamente para x e y
                 x: note.x * containerSize.width,
                 y: note.y * containerSize.height,
                 zIndex: index + 1,
