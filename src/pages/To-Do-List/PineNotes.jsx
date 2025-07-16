@@ -76,7 +76,7 @@ function PineNotes() {
   const emitDragUpdate = useCallback(
     throttle((updatedNote) => {
       socketRef.current.emit("drag-note", updatedNote);
-    }, 100), // Emite un máximo de una vez cada 50 milisegundos
+    }, 80), // Emite un máximo de una vez cada 50 milisegundos
     []
   );
 
