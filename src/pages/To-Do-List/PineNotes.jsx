@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { io } from "socket.io-client";
 import throttle from "lodash.throttle"; // Importar throttle
-import { use } from "react";
 
 function PineNotes() {
   const [notes, setNotes] = useState([]);
@@ -12,10 +11,6 @@ function PineNotes() {
   const containerRef = useRef(null);
   const [isConected, setIsConected] = useState(false);
   const [isDraggingEnabled, setIsDraggingEnabled] = useState(true);
-
-  const isFirstRenderRef = useRef(true);
-
-  const [key, setKey] = useState(0);
 
   const socketRef = useRef(null);
   const clientIdRef = useRef(Date.now() + "-" + Math.random());
@@ -46,13 +41,11 @@ function PineNotes() {
     });
     socket.on("note-created", (newNote) => setNotes((prev) => [...prev, newNote]));
     socket.on("note-updated", (updatedNote, clientId) => {
-      isFirstRenderRef.current = false;
       console.log("Comparing IDs:", clientId, "-----", clientIdRef.current);
-      // if (clientId === clientIdRef.current) {
-      //   // Ignorar actualización porque ya está en el estado local
-      //   return;
-      // }
-      setKey((prev) => prev + 1); // Forzar re-renderizado
+      if (clientId === clientIdRef.current) {
+        // Ignorar actualización porque ya está en el estado local
+        return;
+      }
       setNotes((prev) => prev.map((note) => (note.id === updatedNote.id ? updatedNote : note)));
     });
     socket.on("note-deleted", (deletedId) =>
@@ -124,6 +117,8 @@ function PineNotes() {
     }
   };
 
+  // --- CAMBIO CLAVE AQUÍ ---
+  // Memoizamos la función de emisión de arrastre para que solo se ejecute cada 50ms
   const emitDragUpdate = useCallback(
     throttle((updatedNote) => {
       socketRef.current.emit("drag-note", updatedNote);
@@ -217,7 +212,7 @@ function PineNotes() {
           <PlusCircleIcon className="h-6 w-6" />
           <div>Añadir Nota</div>
         </button>
-        <AnimatePresence key={key}>
+        <AnimatePresence>
           {notes.map((note, index) => (
             <motion.div
               key={note.id}
@@ -226,11 +221,7 @@ function PineNotes() {
               dragMomentum={false}
               onDrag={(event, info) => handleDrag(event, info, note.id)}
               onDragEnd={(event, info) => handleDragEnd(event, info, note.id)}
-              initial={{
-                opacity: isFirstRenderRef.current ? 0 : 1,
-                scale: isFirstRenderRef.current ? 0.8 : 1,
-                rotate: note.initialRotate,
-              }}
+              initial={{ opacity: 0, scale: 0.8, rotate: note.initialRotate }}
               animate={{ opacity: 1, scale: 1, rotate: note.initialRotate }}
               exit={{
                 opacity: 0,
