@@ -9,6 +9,7 @@ function PineNotes() {
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [otherCursors, setOtherCursors] = useState({});
   const containerRef = useRef(null);
+  const [isConected, setIsConected] = useState(false);
   const [isDraggingEnabled, setIsDraggingEnabled] = useState(true);
 
   const socketRef = useRef(null);
@@ -34,11 +35,14 @@ function PineNotes() {
     const socket = io(import.meta.env.VITE_BACKEND_URL);
     socketRef.current = socket;
 
-    socket.on("initial-notes", (initialNotes) => setNotes(initialNotes));
+    socket.on("initial-notes", (initialNotes) => {
+      setNotes(initialNotes);
+      setIsConected(true);
+    });
     socket.on("note-created", (newNote) => setNotes((prev) => [...prev, newNote]));
     socket.on("note-updated", (updatedNote, clientId) => {
-      console.log("ID comparations:", clientId.current, "-------", clientIdRef.current);
-      if (clientId.current === clientIdRef.current) {
+      console.log("Comparing IDs:", clientId, "-----", clientIdRef.current);
+      if (clientId === clientIdRef.current) {
         // Ignorar actualización porque ya está en el estado local
         return;
       }
@@ -109,7 +113,7 @@ function PineNotes() {
     setNotes((prev) => prev.map((note) => (note.id === id ? { ...note, text: newText } : note)));
     const updatedNote = notes.find((note) => note.id === id);
     if (updatedNote) {
-      socketRef.current.emit("update-note", { ...updatedNote, text: newText }, clientIdRef);
+      socketRef.current.emit("update-note", { ...updatedNote, text: newText }, clientIdRef.current);
     }
   };
 
@@ -174,7 +178,7 @@ function PineNotes() {
             y: newY,
           };
           // Asegúrate de enviar la posición final de inmediato al soltar
-          socketRef.current.emit("update-note", updatedNote, clientIdRef);
+          socketRef.current.emit("update-note", updatedNote, clientIdRef.current);
           return updatedNote;
         }
         return note;
@@ -200,9 +204,6 @@ function PineNotes() {
       ))}
       <div ref={containerRef} style={{ width: "90%", height: "90%", position: "relative" }}>
         {" "}
-        {/* Añadir position: "relative" */}
-        {/* Aquí la posición del botón 'Añadir Nota' debe ser relativa al containerRef si quieres que esté dentro de él */}
-        {/* Si quieres que siga en la esquina superior izquierda de la pantalla, déjalo como estaba */}
         <button
           onClick={addNote}
           className="absolute top-6 left-6 p-4 text-gray-800 rounded-lg shadow-xl transform -rotate-3 transition-all duration-150 ease-out hover:scale-105 hover:shadow-2xl active:scale-95 active:shadow-lg flex items-center justify-center font-black tracking-wide gap-2"
@@ -265,6 +266,24 @@ function PineNotes() {
           ))}
         </AnimatePresence>
       </div>
+      {!isConected && (
+        <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center bg-black bg-opacity-50 text-white text-lg font-bold z-50">
+          <div className="flex flex-col items-center">
+            <div className="mb-4">Conectando...</div>
+            <div
+              className="
+        animate-spin
+        rounded-full
+        h-16
+        w-16
+        border-t-4
+        border-b-4
+        border-blue-500
+      "
+            ></div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
