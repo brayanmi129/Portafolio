@@ -16,7 +16,10 @@ function Inicio() {
     <>
       {/* Barra de navegación */}
       <Navbar toggle={toggleState} />
-      <main className="flex-1 pt-[60px] px-4 sm:px-8">
+      <main
+        className="flex-1 pt-[60px] px-4 sm:px-8"
+        style={{ backgroundColor: "#242424", color: "rgba(255, 255, 255, 0.87)" }}
+      >
         <Card isToggled={isToggled} toggle={toggleState} />
         <Separador />
         <Grid />

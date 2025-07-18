@@ -14,8 +14,8 @@ function Grid() {
 
   const images = Array.from({ length: 4 }, (_, index) => `/fondo/img0${index + 1}.jpeg`);
 
-  const proyectos = ["chatbot", "Lefay", "Premier League Simulator", "Pinned Notes"];
-  const links = ["/ChatBot", "/Lefay", "/PremierLeague", "/Pinned-notes"];
+  const proyectos = ["chatbot", "Pinned Notes", "Lefay", "Premier League Simulator"];
+  const links = ["/ChatBot", "/Pinned-notes", "/Lefay", "/PremierLeague"];
 
   return (
     <div className="grid-container">

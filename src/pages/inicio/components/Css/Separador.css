@@ -1,5 +1,5 @@
 .separador {
-  z-index: 2;
+  z-index: -1000;
   position: relative;
   height: 5vh;
   margin-bottom: 10vh;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 .separador .separador-linea {
-  z-index: 1;
+  z-index: -1000;
   position: absolute;
   width: 40%;
   height: 2px;
@@ -17,7 +17,7 @@
   left: 0;
 }
 .separador .separador-linea2 {
-  z-index: 1;
+  z-index: -1000;
   position: absolute;
   width: 40%;
   height: 2px;
@@ -26,7 +26,6 @@
   right: 0;
 }
 .separador .separador-texto {
-  z-index: 2;
   font-size: 3rem;
   /*Negrilla*/
   font-weight: bold;
@@ -62,4 +61,4 @@
     /*Negrilla*/
     font-weight: bold;
   }
-} /*# sourceMappingURL=Separador.css.map */
+}/*# sourceMappingURL=Separador.css.map */

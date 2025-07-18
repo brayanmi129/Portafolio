@@ -8,7 +8,7 @@ import PineNotes from "./pages/To-Do-List/PineNotes";
 const routes = [
   { path: "/", element: <Inicio />, exact: true },
   { path: "/Lefay", element: <Lefay />, exact: true },
-  { path: "/PremierLeague", element: <Premier />, exact: true },
+  { path: "/PremierLeague", element: <Working />, exact: true },
   { path: "/ChatBot", element: <ChatBot />, exact: true },
   { path: "/Pinned-notes", element: <PineNotes />, exact: true },
 ];

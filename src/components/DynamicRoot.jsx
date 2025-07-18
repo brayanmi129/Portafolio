@@ -12,7 +12,7 @@ function DynamicRoot() {
 
     // Agregar clases según la ruta
     if (location.pathname.startsWith("/ChatBot")) {
-      root.classList.add("ChatBot");
+      root.classList.add("ChatBot-theme");
     } else if (location.pathname.startsWith("/PremierLeague")) {
       root.classList.add("PremierLeague-theme");
     } else if (location.pathname.startsWith("/Lefay")) {
