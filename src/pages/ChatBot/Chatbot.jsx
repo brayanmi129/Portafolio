@@ -20,23 +20,22 @@ function ChatBot() {
   useEffect(() => {
     //crear id unico si no existe en el localStorage
     if (!localStorage.getItem("userId")) {
-      localStorage.setItem("userId", Date.now());
+      localStorage.setItem("userId", Date.now() + Math.random().toString(36).substring(2, 9));
     }
     const loadMessages = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URL}/api/ia/historial`, {
-          params: { userId: localStorage.getItem("userId") }, // Usar el ID de usuario del localStorage
+        const response = await axios.get(`${BACKEND_URL}/api/ia/history`, {
+          params: { userId: localStorage.getItem("userId") },
         });
-        // ✅ Asegurarse de que response.data sea un array, si no, usar un array vacío
+
         setMessages(Array.isArray(response.data) ? response.data : []);
       } catch (error) {
         console.error("❌ Error al obtener mensajes:", error);
-        // En caso de error, inicializar con un mensaje de bienvenida o vacío
         setMessages([]);
       }
     };
     loadMessages();
-  }, [BACKEND_URL]);
+  }, []);
 
   // Función para enviar mensajes
   const sendMessage = async () => {
@@ -54,16 +53,14 @@ function ChatBot() {
 
     try {
       const response = await axios.post(`${BACKEND_URL}/api/ia/chat`, {
-        userId: localStorage.getItem("userId"), // Usar el ID de usuario del localStorage
-        message: userMessage.parts[0].text, // Enviar solo el texto del mensaje
+        userId: localStorage.getItem("userId"),
+        message: userMessage.parts[0].text,
+        messages: Array.isArray(messages) ? messages : [],
       });
 
-      // ✅ Asegurarse de que response.data sea un array, si no, usar un array vacío
-      // Asumiendo que la respuesta del backend es el historial completo
       setMessages(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error("❌ Error al enviar mensaje:", error);
-      // ✅ Asegurarse de que prevMessages sea un array antes de añadir el mensaje de error
       setMessages((prevMessages) => [
         ...(Array.isArray(prevMessages) ? prevMessages : []),
         {
@@ -92,9 +89,7 @@ function ChatBot() {
     <div className="flex flex-col h-screen bg-gray-100 font-inter antialiased">
       {/* Encabezado del Chatbot */}
       <header className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white p-4 shadow-lg flex items-center justify-center rounded-b-xl">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Chat con <span className="text-purple-200">IA</span>
-        </h1>
+        <h1 className="text-3xl font-bold tracking-tight">Chat con Gemini</h1>
       </header>
 
       {/* Contenedor principal del chat */}
@@ -120,7 +115,7 @@ function ChatBot() {
             ))
           ) : (
             <div className="flex items-center justify-center h-full text-gray-500 text-lg">
-              <p>👋 Hola, ¡empieza a interactuar con el chat de IA!</p>
+              <p>Hola envia un mensaje para iniciar la conversacion</p>
             </div>
           )}
           {isLoading && (
