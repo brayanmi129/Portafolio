@@ -17,7 +17,7 @@ function Grid() {
   // const proyectos = ["chatbot", "Pinned Notes", "Lefay", "Premier League Simulator"];
   // const links = ["/ChatBot", "/Pinned-notes", "/Lefay", "/PremierLeague"];
   const proyectos = ["Chat-Bot", "Pinned Notes", "Crypto Tracker"];
-  const links = ["/ChatBot", "/Pinned-notes", "/https://cryptoinvestment.azurewebsites.net"];
+  const links = ["/ChatBot", "/Pinned-notes", "https://cryptoinvestment.azurewebsites.net"];
 
   return (
     <div className="grid-container">
