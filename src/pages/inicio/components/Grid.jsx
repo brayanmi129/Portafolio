@@ -12,10 +12,12 @@ function Grid() {
     setHoveredIndex(null);
   };
 
-  const images = Array.from({ length: 4 }, (_, index) => `/fondo/img0${index + 1}.jpeg`);
+  const images = Array.from({ length: 3 }, (_, index) => `/fondo/img0${index + 1}.jpeg`);
 
-  const proyectos = ["chatbot", "Pinned Notes", "Lefay", "Premier League Simulator"];
-  const links = ["/ChatBot", "/Pinned-notes", "/Lefay", "/PremierLeague"];
+  // const proyectos = ["chatbot", "Pinned Notes", "Lefay", "Premier League Simulator"];
+  // const links = ["/ChatBot", "/Pinned-notes", "/Lefay", "/PremierLeague"];
+  const proyectos = ["Chat-Bot", "Pinned Notes", "Crypto Tracker"];
+  const links = ["/ChatBot", "/Pinned-notes", "/https://cryptoinvestment.azurewebsites.net"];
 
   return (
     <div className="grid-container">

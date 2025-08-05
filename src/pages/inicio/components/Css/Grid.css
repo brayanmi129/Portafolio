@@ -5,14 +5,18 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-  grid-template-rows: repeat(2, 30vh); /* 4 filas con 25vh */
+  grid-template-columns: repeat(1, 1fr); /* 1 columna */
+  grid-template-rows: repeat(3, 30vh); /* 2 filas con 30vh */
   width: 80vw;
   height: auto; /* Ajusta automáticamente su tamaño */
   margin: 0 auto 5vh auto; /* Arriba: 0, Abajo: 5vh, Lados: auto */
   row-gap: 20px;
   -moz-column-gap: 20px;
        column-gap: 20px;
+}
+.grid-container p {
+  font-size: 2rem;
+  padding: 10px;
 }
 
 /* Elementos dentro de la cuadrícula */
@@ -38,12 +42,12 @@
 
 .item-1 {
   background-size: contain;
-  background-position: top;
+  background-position: right;
 }
 
 .item-2 {
   background-size: contain;
-  background-position: center;
+  background-position: bottom;
 }
 
 .item-3 {
