@@ -31,11 +31,11 @@ function Grid() {
   ];
 
   return (
-    <div className="grid grid-cols-1  gap-12 py-4 px-8 md:px-24">
+    <div className="grid grid-cols-1  gap-12 py-4 px-2 md:px-24">
       {proyectos.map((proyecto, index) => (
         <div
           key={index}
-          className="relative group h-64 rounded-2xl shadow-lg overflow-hidden"
+          className="relative group h-72 md:h-64 rounded-2xl shadow-lg overflow-hidden"
           style={{
             backgroundImage: `url(${proyecto.image})`,
             backgroundSize: "cover",
